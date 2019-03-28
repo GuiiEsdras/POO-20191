@@ -1,6 +1,5 @@
 # Programação Orientada à Objetos
 
-<<<<<<< HEAD
 Instituto Federal de Educação, Ciência e Tecnologia da Paraíba - IFPB - *Campus* CG  / PB 
 
 **Curso**: Bacharelado em Engenharia de Computação.
@@ -20,8 +19,3 @@ Neste repositório, encontram-se programas e soluções de exercícios feitos na
 ## Autor
 
 * **Guilherme Esdras (guilherme.esdras@outlook.com)** - [GitHub Page](https://github.com/GuilhermeEsdras)
-=======
-Engenharia de Computação 2019.1
-
-Lista 01 de Exercícios de Sintaxe Java
->>>>>>> 82e06a77f91ec18ae41087ff4c11ce19bacf2504
