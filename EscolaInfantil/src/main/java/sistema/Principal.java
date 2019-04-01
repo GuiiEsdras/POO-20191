@@ -1,10 +1,7 @@
 package sistema;
 
-/**
- * Hello world!
- *
- */
-public class EscolaInfantil
+
+public class Principal
 {
     public static void main( String[] args )
     {

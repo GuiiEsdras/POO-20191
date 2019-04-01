@@ -1,13 +1,13 @@
-package sistema;
+package br.edu.ifpb;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 /**
- * Unit test for simple EscolaInfantil.
+ * Unit test for simple Menu.
  */
-public class EscolaInfantilTest
+public class MenuTest
 {
     /**
      * Rigorous Test :-)
