@@ -1,10 +1,10 @@
 # Programação Orientada à Objetos
 
 <p align="center">
-  <img src="http://arquivo.devmedia.com.br/marketing/img/programe-orientado-a-objetos.png" />
+  <img src="http://arquivo.devmedia.com.br/marketing/img/programe-orientado-a-objetos.png" width="800" />
 </p>
 
-<h5 align="center"> Programando Orientado à Objetos! </h5>
+<h5 align="center"> Programando Orientado à Objetos!! </h5>
 
 <!-- Links do Repositório -->
 <p align="center">
