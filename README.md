@@ -1,7 +1,7 @@
 # Programação Orientada à Objetos
 
 <p align="center">
-  <img src="http://arquivo.devmedia.com.br/marketing/img/programe-orientado-a-objetos.png" width="500" />
+  <img src="http://arquivo.devmedia.com.br/marketing/img/programe-orientado-a-objetos.png" />
 </p>
 
 <h5 align="center"> Programando Orientado à Objetos! </h5>
@@ -25,7 +25,8 @@
     - [Sistema Operacional](#sistema-operacional)
     - [Compilador](#compilador)
     - [Interpretador](#interpretador)
-    - [IDE](#ide)
+    - [IDE's & Editor(es) de Texto](#ides--editores-de-texto)
+    - [Ferramentas de UML](#ferramentas-de-uml)
   - [Programando em Java](#programando-em-java)
     - [Pré-Requisitos](#pr%c3%a9-requisitos)
     - [Executando .java pelo CMD](#executando-java-pelo-cmd)
@@ -56,7 +57,7 @@ Estes são os materiais usados por mim para desenvolver e rodar meus programas e
 - [Javac (Em Java Runtime Environment)](#Links-%C3%9Ateis)
 ### Interpretador
 - [JVM (Java Virtual Machine)](#links-%c3%9ateis)
-### IDE
+### IDE's & Editor(es) de Texto
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Com as extensões: <br/>
     [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) <br/>
@@ -69,6 +70,9 @@ Estes são os materiais usados por mim para desenvolver e rodar meus programas e
 - [Android Studio](https://developer.android.com/studio)
 - [Eclipse](https://www.eclipse.org/downloads/)
 - [NetBeans](https://netbeans.org/features/java/index_pt_BR.html)
+### Ferramentas de UML
+- [LucidChart](https://www.lucidchart.com/)
+- [Visual Paradigm](https://online.visual-paradigm.com/pt/)
 <!-- -->
 
 <!-- Programando em ... -->
