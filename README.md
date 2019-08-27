@@ -1,7 +1,7 @@
 # Programação Orientada à Objetos
 
 <p align="center">
-  <img src="http://arquivo.devmedia.com.br/marketing/img/programe-orientado-a-objetos.png" width="800" />
+  <img src="http://arquivo.devmedia.com.br/marketing/img/programe-orientado-a-objetos.png" width="500" />
 </p>
 
 <h5 align="center"> Programando Orientado à Objetos!! </h5>
