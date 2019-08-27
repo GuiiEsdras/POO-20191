@@ -8,7 +8,7 @@ class MenuCalculadora
 
     void exibirMenu() {
 
-        calculadora.alterarDescricao("Sobre Padrao.");
+        calculadora.alterarDescricao("Calculadora do Gui!. :)");
 
         while (true)
         {
@@ -116,7 +116,7 @@ class MenuCalculadora
         System.out.println("Obs.: Use virgula como separador de decimais.");
         System.out.print("Digite o primeiro número: ");
         temp[0] = input.nextDouble();
-        System.out.print("Digite o segundo número (Use virgula): ");
+        System.out.print("Digite o segundo número: ");
         temp[1] = input.nextDouble();
         return temp;
     }
