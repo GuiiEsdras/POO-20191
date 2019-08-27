@@ -33,6 +33,8 @@
     - [Criando e Rodando Projetos com Maven](#criando-e-rodando-projetos-com-maven)
     - [Criando Bateria de Testes com intelliJ](#criando-bateria-de-testes-com-intellij)
     - [Exemplo de Hello World](#exemplo-de-hello-world)
+  - [Programando em Kotlin](#programando-em-kotlin)
+  - [Programando em Python 3](#programando-em-python-3)
   - [Links Úteis](#links-%c3%9ateis)
   - [Autor](#autor)
   - [Licença](#licen%c3%a7a)
@@ -44,7 +46,6 @@ Repositório criado com a finalidade de armazenar códigos e projetos referentes
 
 *O curso é passado na linguagem Java. Os conteúdos produzidos em outras linguagens são de autoria própria. :)*
 <!-- -->
-
 
 <!-- Material Utilizado -->
 ## Material Utilizado
@@ -276,11 +277,20 @@ Saída: <br/>
 `> Hello, Gui! =)`
 <!-- -->
 
+## Programando em Kotlin
+[Ver repositório principal de Kotlin!](https://github.com/GuilhermeEsdras/Kronstadt)
+
+## Programando em Python 3
+[Ver repositório principal de Python 3!](https://github.com/GuilhermeEsdras/Mamba-3)
+
 <!-- Links-->
 ## Links Úteis
 - [Java™ SE (Standard Edition) Development Kit (JDK™) - Java JDK](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Java Download](https://www.java.com/pt_BR/download/)
 - [Visual Paradigm - Criação de Diagramas UML online](online.visual-paradigm.com/)
+- [Repositório Principal de Java](https://github.com/GuilhermeEsdras/Coffe-Shop)
+- [Repositório Principal de Kotlin](https://github.com/GuilhermeEsdras/Kronstadt)
+- [Repositório Principal de Python 3](https://github.com/GuilhermeEsdras/Mamba-3)
 <!-- -->
 
 <!-- Autor/Contato -->
