@@ -32,6 +32,7 @@
     - [Executando .java pelo CMD](#executando-java-pelo-cmd)
     - [Empacontando arquivos .class em um .jar](#empacontando-arquivos-class-em-um-jar)
     - [Criando e Rodando Projetos com Maven](#criando-e-rodando-projetos-com-maven)
+    - [Criando projeto Multi-Modular com Maven e intelliJ](#criando-projeto-multi-modular-com-maven-e-intellij)
     - [Criando Bateria de Testes com intelliJ](#criando-bateria-de-testes-com-intellij)
     - [Exemplo de Hello World](#exemplo-de-hello-world)
   - [Programando em Kotlin](#programando-em-kotlin)
@@ -246,6 +247,99 @@ Organizando em pastas:
 7. Para rodar o programa, executar o jar gerado na pasta *target*:
    - `> java -jar target/"app"-1.0-SNAPSHOT.jar` <br/>
     Onde **"app"** é o nome do arquivo/classe principal do programa.
+
+### Criando projeto Multi-Modular com Maven e intelliJ
+
+1. Criar um projeto normalmente usando o Maven 
+   [*(ver)*](#criando-e-rodando-projetos-com-maven)
+2. Apagar a pasta *src*
+3. Ir até "Project Structure" no intelliJ
+4. Navegar até a guia "Modules"
+5. Remover as pastas apagadas na lista de pastas no lado direito da janela
+6. Clicar no símbolo "+", em seguida "New Module":
+   1. Next;
+   2. Clicar nos "..." no lado superior direito;
+   3. Selecionar o *parent* (pasta raiz do projeto);
+   4. Digitar nome do Package e do Módulo, separando as palavras por "-".
+   
+7. Editar o *pom.xml* pai:
+   1. Apagar todos os plugins e deixar apenas as seguintes linhas: <br>
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+
+        <groupId>br.edu.ifpb</groupId> <!-- Pacote principal do projeto -->
+        <artifactId>projName</artifactId> <!-- Nome da pasta do raiz do projeto -->
+        <version>1.0-GUILHERME</version> <!-- Nome desejado para os .jar gerados -->
+        <description>Descrição do Projeto - Guilherme Esdras</description> <!-- Descrição do projeto -->
+        <packaging>pom</packaging> <!-- Necessário para o pom pai (parent) -->
+
+        <modules>
+            <!-- Todos os módulos criados do projeto -->
+            <module>modulo-services</module>
+            <module>modulo-cli</module>
+            <module>modulo-gui</module>
+        </modules>
+
+        <!-- Versão do java -->
+        <properties>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+            <java.version>11</java.version>
+            <maven.compiler.source>${java.version}</maven.compiler.source>
+            <maven.compiler.target>${java.version}</maven.compiler.target>
+        </properties>
+        
+    </project>
+    ```
+8. Editar os *pom.xml* filhos:
+   1. Se por acaso um módulo importar outro, adicionar o módulo nas dependências do pom que o importa:
+    ``` xml
+    <dependencies>
+        <dependency>
+            <groupId>br.edu.ifpb</groupId> <!-- Pacote principal -->
+            <artifactId>modulo-tal</artifactId> <!-- Módulo dependente/importado -->
+            <version>1.0-GUILHERME</version> <!-- Nome desejado para o .jar -->
+        </dependency>
+    </dependencies>
+    ```
+    2. Para o módulo que contém o main, adicionar o plugin gerador de *fat jar* (jar contendo vários módulos dependentes):
+    ``` xml
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+                <executions>
+                    <execution>
+                        <id>create-fat-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <!-- add Main-Class to manifest file -->
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <!-- Substituir pelo caminho e nome da classe Main -->
+                                    <mainClass>br.edu.ifpb.cli.MainCLI</mainClass>
+                                </transformer>
+                            </transformers>
+                            <!-- Nome desejado para o .jar final principal -->
+                            <finalName>CLI</finalName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    ```
+9. Para compilar e gerar os pacotes, seguir o mesmo processo de um projeto comum.
+10. Para executar o projeto, gerar o .jar do main seguindo o passo 8.2 e executá-lo usando o comando java -jar.
 
 ### Criando Bateria de Testes com intelliJ
 
