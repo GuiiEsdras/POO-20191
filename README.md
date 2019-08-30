@@ -272,7 +272,7 @@ Organizando em pastas:
         <modelVersion>4.0.0</modelVersion>
 
         <groupId>br.edu.ifpb</groupId> <!-- Pacote principal do projeto -->
-        <artifactId>projName</artifactId> <!-- Nome da pasta do raiz do projeto -->
+        <artifactId>projName</artifactId> <!-- Nome da past raiz do projeto -->
         <version>1.0-GUILHERME</version> <!-- Nome desejado para os .jar gerados -->
         <description>Descrição do Projeto - Guilherme Esdras</description> <!-- Descrição do projeto -->
         <packaging>pom</packaging> <!-- Necessário para o pom pai (parent) -->
