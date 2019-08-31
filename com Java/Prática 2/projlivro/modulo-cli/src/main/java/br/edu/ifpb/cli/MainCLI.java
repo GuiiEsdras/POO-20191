@@ -47,12 +47,11 @@ public class MainCLI {
                         String autor = inputStr();
 
                         System.out.println("|Gêneros disponíveis| ");
-                        for (Categoria cat : EnumSet.allOf(Categoria.class)) {
-                            System.out.println("- " + cat);
-                        }
+                        System.out.println(Livro.listarGêneros());
+
                         System.out.print("Digite o gênero do livro: ");
                         String gênero = inputStr();
-                        if (!MainCLI.gêneroVálido(gênero)) {
+                        if (!Livro.gêneroVálido(gênero)) {
                             MainCLI.printMsg("Gênero Inválido! Digite o nome exatamente como na lista de gêneros!");
                             break;
                         }
@@ -157,13 +156,6 @@ public class MainCLI {
 
     private static void printMsg(String msg) {
         System.out.println(String.format("-\n> %s\n-", msg));
-    }
-
-    public static boolean gêneroVálido(String gênero) {
-        for (Categoria cat : EnumSet.allOf(Categoria.class)) {
-            if (cat.toString().equals(gênero)) return true;
-        }
-        return false;
     }
 
     private static int inputInt() {

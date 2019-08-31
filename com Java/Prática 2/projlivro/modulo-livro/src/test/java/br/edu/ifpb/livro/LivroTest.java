@@ -8,7 +8,7 @@ import java.util.Date;
 public class LivroTest {
 
     @Test
-    public void setCódigo() {
+    public void getCódigo() {
         Livro livro1 = new Livro("Título", "Autor", Categoria.ROMANCE, 50.00, new Date());
         Assert.assertEquals(1, livro1.getCódigo());
 
@@ -19,7 +19,7 @@ public class LivroTest {
     }
 
     @Test
-    public void getCódigo() {
+    public void setCódigo() {
         Livro livro1 = new Livro("Título", "Autor", Categoria.ROMANCE, 50.00, new Date());
         Assert.assertEquals(1, livro1.getCódigo());
 

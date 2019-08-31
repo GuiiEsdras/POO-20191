@@ -53,6 +53,21 @@ public class Livro {
         this.gênero = gênero;
     }
 
+    public static String listarGêneros() {
+        StringBuilder gêneros = new StringBuilder();
+        for (Categoria cat : EnumSet.allOf(Categoria.class)) {
+            gêneros.append("- " + cat).append("\n");
+        }
+        return gêneros.toString();
+    }
+
+    public static boolean gêneroVálido(String gênero) {
+        for (Categoria cat : EnumSet.allOf(Categoria.class)) {
+            if (cat.toString().equals(gênero)) return true;
+        }
+        return false;
+    }
+
     public Date getAquisição() {
         return aquisição;
     }
