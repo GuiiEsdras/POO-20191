@@ -1,7 +1,7 @@
 package br.edu.ifpb.livro;
 
 public enum Categoria {
-    COMÉDIA("Comédia"),
+    COMEDIA("Comedia"),
     DRAMA("Drama"),
     FANTASIA("Fantasia"),
     ROMANCE("Romance"),

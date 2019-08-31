@@ -5,7 +5,7 @@ import java.util.Date;
 public class TesteLivro {
     public static void main(String[] args) {
 
-        String categoria = "Comédia";
+        String categoria = "Comedia";
         Livro livro = new Livro("Livro do Gui", "Guilherme",
                 Categoria.valueOf(categoria.toUpperCase()), 157.78, new Date());
         System.out.println(livro);

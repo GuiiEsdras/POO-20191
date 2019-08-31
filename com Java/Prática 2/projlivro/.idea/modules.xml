@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/modulo-cli/modulo-cli.iml" filepath="$PROJECT_DIR$/modulo-cli/modulo-cli.iml" />
-      <module fileurl="file://$PROJECT_DIR$/modulo-gui/modulo-gui.iml" filepath="$PROJECT_DIR$/modulo-gui/modulo-gui.iml" />
       <module fileurl="file://$PROJECT_DIR$/modulo-livro/modulo-livro.iml" filepath="$PROJECT_DIR$/modulo-livro/modulo-livro.iml" />
       <module fileurl="file://$PROJECT_DIR$/modulo-services/modulo-services.iml" filepath="$PROJECT_DIR$/modulo-services/modulo-services.iml" />
       <module fileurl="file://$PROJECT_DIR$/projlivro.iml" filepath="$PROJECT_DIR$/projlivro.iml" />

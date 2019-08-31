@@ -1,31 +1,26 @@
 package br.edu.ifpb.services;
 
-import br.edu.ifpb.livro.Categoria;
 import br.edu.ifpb.livro.Livro;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class CatalogoLivros {
 
-    ArrayList<Livro> listaDeLivros;
+    private ArrayList<Livro> listaDeLivros;
 
     public CatalogoLivros() {
-        this.listaDeLivros = new ArrayList<Livro>();
+        this.listaDeLivros = new ArrayList<>();
     }
 
     public ArrayList<Livro> getListaDeLivros() {
         return listaDeLivros;
     }
 
-    public boolean adicionarLivro(String título, String autor, Categoria gênero, double preço, Date aquisição) {
+    public boolean adicionarLivro(Livro livro) {
 
-        Livro livroTemp = new Livro(título, autor, gênero, preço, aquisição);
+        if (this.pesquisarLivroPorTítulo(livro.getTítulo()) > 0) return false;
 
-        if (this.listaDeLivros.contains(livroTemp)) return false;
-
-        this.listaDeLivros.add(livroTemp);
-
+        this.listaDeLivros.add(livro);
         return true;
     }
 
@@ -44,7 +39,7 @@ public class CatalogoLivros {
     public boolean removerLivroPorTítulo(String título) {
 
         for (Livro livro: listaDeLivros) {
-            if (livro.getTítulo() == título) {
+            if (livro.getTítulo().equals(título)) {
                 listaDeLivros.remove(livro);
                 return true;
             }
@@ -67,7 +62,7 @@ public class CatalogoLivros {
     public int pesquisarLivroPorTítulo(String título) {
 
         for (Livro livro : listaDeLivros) {
-            if (livro.getTítulo() == título) {
+            if (livro.getTítulo().equals(título)) {
                 return livro.getCódigo();
             }
         }
@@ -84,9 +79,14 @@ public class CatalogoLivros {
         StringBuilder catalogo = new StringBuilder();
 
         for (Livro livro : listaDeLivros) {
-            catalogo.append(livro.toString() + "\n");
+            catalogo.append(livro.toString()).append("\n");
         }
 
         return catalogo.toString();
+    }
+
+    public void limparCatalogo() {
+        this.listaDeLivros.clear();
+        Livro.setINCREMENTADOR(0);
     }
 }

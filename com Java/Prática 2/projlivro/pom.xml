@@ -13,7 +13,6 @@
   <modules>
     <module>modulo-services</module>
     <module>modulo-cli</module>
-    <module>modulo-gui</module>
     <module>modulo-livro</module>
   </modules>
 

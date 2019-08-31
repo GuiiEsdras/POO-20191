@@ -1,8 +1,8 @@
 package br.edu.ifpb.livro;
 
 import java.text.NumberFormat;
-import java.util.Currency;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.Locale;
 
 public class Livro {
@@ -79,20 +79,22 @@ public class Livro {
         this.código = ++INCREMENTADOR;
     }
 
+    public static void setINCREMENTADOR(int INCREMENTADOR) {
+        Livro.INCREMENTADOR = INCREMENTADOR;
+    }
+
     @Override
     public String toString() {
 
         NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(local);
 
-        String str =
-                String.format("|Livro Cód. %s|", this.getCódigo()) + "\n" +
+        return String.format( "|Livro Cód. %s|", this.getCódigo() ) + "\n" +
                 "Título: " + this.getTítulo() + "\n" +
                 "Autor: " + this.getAutor() + "\n" +
                 "Gênero: " + this.getGênero() + "\n" +
                 "Preço: " + formatoMoeda.format(this.getPreço()) + "\n" +
-                String.format("%1$s %2$td de %2$tB de %2$tY às %2$tr", "Data de Aquisição:", this.getAquisição()) + "\n" +
+                String.format("%1$s %2$td de %2$tB de %2$tY às %2$tr",
+                        "Data de Aquisição:", this.getAquisição()) + "\n" +
                 "---";
-
-        return str;
     }
 }

@@ -39,7 +39,7 @@
                                     <mainClass>br.edu.ifpb.cli.MainCLI</mainClass>
                                 </transformer>
                             </transformers>
-                            <finalName>CLI</finalName>
+                            <finalName>projlivro-CLI</finalName>
                         </configuration>
                     </execution>
                 </executions>

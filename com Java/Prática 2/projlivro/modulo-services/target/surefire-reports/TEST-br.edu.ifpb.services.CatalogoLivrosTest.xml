@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="br.edu.ifpb.livro.LivroTest" time="0.008" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="br.edu.ifpb.services.CatalogoLivrosTest" time="0.005" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="11.0.2+9-LTS"/>
@@ -7,16 +7,16 @@
     <property name="maven.multiModuleProjectDirectory" value="C:\Users\Guilherme\Documents\Engenharia de Computação\Programação Orientada à Objetos\com Java\Prática 2\projlivro"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
-    <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="sun.os.patch.level" value=""/>
-    <property name="user.script" value=""/>
     <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.script" value=""/>
+    <property name="sun.os.patch.level" value=""/>
     <property name="user.dir" value="C:\Users\Guilherme\Documents\Engenharia de Computação\Programação Orientada à Objetos\com Java\Prática 2\projlivro"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.runtime.version" value="11.0.2+9-LTS"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="os.arch" value="amd64"/>
@@ -41,8 +41,8 @@
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="11"/>
-    <property name="user.name" value="Guilherme"/>
     <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.2\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="user.name" value="Guilherme"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version2019.2 package"/>
@@ -58,20 +58,15 @@
     <property name="java.version.date" value="2019-01-15"/>
     <property name="idea.version2019.2" value="true"/>
     <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.vendor.version" value="18.9"/>
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="br.edu.ifpb.livro.LivroTest" name="setCódigo" time="0.007"/>
-  <testcase classname="br.edu.ifpb.livro.LivroTest" name="setGênero" time="0"/>
-  <testcase classname="br.edu.ifpb.livro.LivroTest" name="getCódigo" time="0"/>
-  <testcase classname="br.edu.ifpb.livro.LivroTest" name="getGênero" time="0"/>
-  <testcase classname="br.edu.ifpb.livro.LivroTest" name="setTítulo" time="0"/>
-  <testcase classname="br.edu.ifpb.livro.LivroTest" name="getTítulo" time="0"/>
-  <testcase classname="br.edu.ifpb.livro.LivroTest" name="setAutor" time="0"/>
-  <testcase classname="br.edu.ifpb.livro.LivroTest" name="setPreço" time="0"/>
-  <testcase classname="br.edu.ifpb.livro.LivroTest" name="getAutor" time="0.001"/>
-  <testcase classname="br.edu.ifpb.livro.LivroTest" name="getPreço" time="0"/>
+  <testcase classname="br.edu.ifpb.services.CatalogoLivrosTest" name="catalogoVazio" time="0.004"/>
+  <testcase classname="br.edu.ifpb.services.CatalogoLivrosTest" name="pesquisarLivroPorTítulo" time="0"/>
+  <testcase classname="br.edu.ifpb.services.CatalogoLivrosTest" name="limparCatalogo" time="0"/>
+  <testcase classname="br.edu.ifpb.services.CatalogoLivrosTest" name="removerLivroPorTítulo" time="0.001"/>
+  <testcase classname="br.edu.ifpb.services.CatalogoLivrosTest" name="adicionarLivro" time="0"/>
 </testsuite>
