@@ -11,4 +11,12 @@
 
     <artifactId>banco</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>br.edu.ifpb</groupId>
+            <artifactId>conta</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 </project>

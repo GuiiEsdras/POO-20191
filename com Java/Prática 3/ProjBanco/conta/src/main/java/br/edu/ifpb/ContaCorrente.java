@@ -59,6 +59,7 @@ public class ContaCorrente {
         }
     }
 
+    // <default>
     public double sacar(double quantia) {
         if ( this.getSaldo() > quantia && quantia > 0 ) {
             this.setSaldo( this.descontaCPMF(quantia) );
