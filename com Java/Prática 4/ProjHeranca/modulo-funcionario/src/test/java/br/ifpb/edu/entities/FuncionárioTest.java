@@ -80,17 +80,4 @@ public class FuncionárioTest {
         Funcionário funcionário = new Funcionário();
         Assert.assertEquals("R$ 980,00", funcionário.formatoMoeda(valor));
     }
-
-    @Test
-    public void testToString() {
-        Funcionário funcionário = new Funcionário("Nome", 18, "Rua Tal", 980.00);
-        String str =
-                "\nMatrícula: 2019020002" +
-                "\nNome: Nome" +
-                "\nIdade: 18" +
-                "\nEndereço: Rua Tal" +
-                "\nSalário (Base): R$ 980,00";
-
-        Assert.assertEquals(str, funcionário.toString());
-    }
 }

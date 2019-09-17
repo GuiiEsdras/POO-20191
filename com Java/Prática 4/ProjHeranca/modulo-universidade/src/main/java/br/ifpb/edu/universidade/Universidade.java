@@ -3,14 +3,17 @@ package br.ifpb.edu.universidade;
 import br.ifpb.edu.entities.Funcionário;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Universidade {
     private String nome;
+    private Date fundação;
     private List<Funcionário> listaDeFuncionários;
 
     {
         this.setListaDeFuncionários(new ArrayList<>());
+        this.setFundação(new Date());
     }
 
     public Universidade() {
@@ -29,6 +32,14 @@ public class Universidade {
         if (nome.length() > 0) {
             this.nome = nome;
         }
+    }
+
+    public Date getFundação() {
+        return fundação;
+    }
+
+    public void setFundação(Date fundação) {
+        this.fundação = fundação;
     }
 
     public List<Funcionário> getListaDeFuncionários() {
