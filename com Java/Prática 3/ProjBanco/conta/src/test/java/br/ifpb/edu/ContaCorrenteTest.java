@@ -1,12 +1,9 @@
-package br.edu.ifpb;
-
+package br.ifpb.edu;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 public class ContaCorrenteTest {
-
-
     @Test
     public void getNúmero() {
         ContaCorrente cc = new ContaCorrente(1, "Teste", 150);
@@ -83,8 +80,8 @@ public class ContaCorrenteTest {
     @Test
     public void testToString() {
         String str = "|Dados da Conta 1|" + "\n" +
-                     "Titular: Exemplo" + "\n" +
-                     "Saldo: R$ 500,00";
+                "Titular: Exemplo" + "\n" +
+                "Saldo: R$ 500,00";
 
         ContaCorrente cc = new ContaCorrente(1, "Exemplo", 500);
 

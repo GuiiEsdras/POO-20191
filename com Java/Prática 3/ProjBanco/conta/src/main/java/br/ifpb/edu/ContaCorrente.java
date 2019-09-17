@@ -1,10 +1,9 @@
-package br.edu.ifpb;
+package br.ifpb.edu;
 
 import java.text.NumberFormat;
 import java.util.Locale;
 
 public class ContaCorrente {
-
     private Locale local = new Locale("pt", "BR");
 
     private int número;

@@ -1,4 +1,4 @@
-package br.edu.ifpb;
+package br.ifpb.edu;
 
 public class TesteContaCorrente {
     public static void main(String[] args) {

@@ -1,7 +1,5 @@
 package br.ifpb.edu;
 
-import br.edu.ifpb.ContaCorrente;
-
 import java.util.ArrayList;
 import java.util.List;
 

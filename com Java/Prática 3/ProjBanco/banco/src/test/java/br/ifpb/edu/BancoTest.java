@@ -1,12 +1,10 @@
 package br.ifpb.edu;
 
-import br.edu.ifpb.ContaCorrente;
 import org.junit.Assert;
 import org.junit.Test;
 
 
 public class BancoTest {
-
 
     @Test
     public void getBankName() {

@@ -263,7 +263,7 @@ Organizando em pastas:
    4. Digitar nome do Package e do Módulo, separando as palavras por "-".
    
 7. Editar o *pom.xml* pai:
-   1. Apagar todos os plugins e deixar apenas as seguintes linhas: <br>
+   1. Certificar-se de deixar este *pom.xml* com a seguinte estrutura: <br>
     ``` xml
     <?xml version="1.0" encoding="UTF-8"?>
 
@@ -271,20 +271,19 @@ Organizando em pastas:
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
         <modelVersion>4.0.0</modelVersion>
 
-        <groupId>br.edu.ifpb</groupId> <!-- Pacote principal do projeto -->
-        <artifactId>projName</artifactId> <!-- Nome da past raiz do projeto -->
-        <version>1.0-GUILHERME</version> <!-- Nome desejado para os .jar gerados -->
+        <groupId>xx.xx.xx</groupId> <!-- Pacote principal do projeto -->
+        <artifactId>"Nome do Projeto"</artifactId> <!-- Nome da past raiz do projeto -->
+        <version>1.0-VERSÃO</version> <!-- Nome desejado para os .jar gerados -->
         <description>Descrição do Projeto - Guilherme Esdras</description> <!-- Descrição do projeto -->
         <packaging>pom</packaging> <!-- Necessário para o pom pai (parent) -->
 
+        <!-- Módulos (Essa parte é criada automaticamente durante o processo) -->
         <modules>
             <!-- Todos os módulos criados do projeto -->
-            <module>modulo-services</module>
-            <module>modulo-cli</module>
-            <module>modulo-gui</module>
+            <module>"modulo-tal"</module>
         </modules>
 
-        <!-- Versão do java -->
+        <!-- Versão Local do java -->
         <properties>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
             <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -292,6 +291,73 @@ Organizando em pastas:
             <maven.compiler.source>${java.version}</maven.compiler.source>
             <maven.compiler.target>${java.version}</maven.compiler.target>
         </properties>
+
+        <!-- Plugins, Reports e Dependencias -->
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <executions>
+                        <execution>
+                            <id>attach-my-javadocs</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <executions>
+                        <execution>
+                            <id>attach-my-sources</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>3.0.0-M3</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.7.1</version>
+                </plugin>            
+            </plugins>
+        </build>
+
+        <reporting>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>3.0.0-M3</version>
+                </plugin>
+            </plugins>
+        </reporting>
+
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </project>
         
     </project>
     ```
@@ -302,7 +368,7 @@ Organizando em pastas:
         <dependency>
             <groupId>br.edu.ifpb</groupId> <!-- Pacote principal -->
             <artifactId>modulo-tal</artifactId> <!-- Módulo dependente/importado -->
-            <version>1.0-GUILHERME</version> <!-- Nome desejado para o .jar -->
+            <version>1.0-GUILHERME</version>
         </dependency>
     </dependencies>
     ```

@@ -1,9 +1,8 @@
 package br.ifpb.edu;
 
-import br.edu.ifpb.ContaCorrente;
-
 public class TesteBanco {
     public static void main(String[] args) {
+
         Banco novoBanco = new Banco("Gui");
 
         ContaCorrente acc1 = new ContaCorrente(1, "Gui", 100);
@@ -17,5 +16,6 @@ public class TesteBanco {
         novoBanco.removeConta(1);
 
         System.out.println(novoBanco);
+
     }
 }
