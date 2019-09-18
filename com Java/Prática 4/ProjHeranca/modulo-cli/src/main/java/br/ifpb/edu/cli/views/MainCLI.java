@@ -3,6 +3,7 @@ package br.ifpb.edu.cli.views;
 import br.ifpb.edu.cli.controllers.Menu;
 import br.ifpb.edu.cli.controllers.enums.OpçõesDoMenuFuncionário;
 import br.ifpb.edu.cli.controllers.enums.OpçõesDoMenuUniversidade;
+import br.ifpb.edu.entities.Funcionário;
 import br.ifpb.edu.entities.gerente.Gerente;
 import br.ifpb.edu.entities.professor.Professor;
 import br.ifpb.edu.universidade.Universidade;
@@ -19,6 +20,13 @@ public class MainCLI {
         universidade.setNome(MainCLI.inputString());
 
         while (true) {
+
+            String nome;
+            int idade;
+            String endereço;
+            double salárioBase;
+
+            int matrícula;
 
             while (true) {
                 menu.separador();
@@ -54,10 +62,6 @@ public class MainCLI {
                     break;
 
                 case CADASTRAR_FUNCIONARIO:
-                    String nome;
-                    int idade;
-                    String endereço;
-                    double salárioBase;
 
                     menu.printHeader("|Cadastrando Funcionário|", 3);
 
@@ -150,6 +154,43 @@ public class MainCLI {
                 case REMOVER_FUNCIONARIO:
                     menu.printHeader("|Removendo Funcionário|", 3);
                     menu.digite("a matrícula do funcionário");
+                    matrícula = inputInt();
+                    if (universidade.existeFuncionário(matrícula)) {
+                        universidade.removeFuncionário(matrícula);
+                        menu.printaln("Funcionário removido com sucesso!");
+                    } else {
+                        menu.printaln("Não foi encontrado funcionário com esta matrícula!");
+                    }
+                    break;
+
+                case LISTAR_FUNCIONARIOS:
+                    menu.printHeader("|Listando Todos os Funcionários|", 3);
+                    for (Funcionário funcionário : universidade.getListaDeFuncionários()) {
+                        System.out.println(funcionário);
+                        System.out.println("---");
+                    }
+                    break;
+
+                case EDITAR_FUNCIONARIO:
+                    menu.digite("a matrícula do funcionário a ser editado");
+                    matrícula = inputInt();
+                    if (universidade.existeFuncionário(matrícula)) {
+                        System.out.println("Funcionalidade não implementada ainda...");
+                    }
+                    break;
+
+                case EXIBIR_FUNCIONARIO:
+                    menu.digite("a matrícula do funcionário");
+                    matrícula = inputInt();
+                    if (universidade.existeFuncionário(matrícula)) {
+                        for (Funcionário funcionário : universidade.getListaDeFuncionários()) {
+                            if (funcionário.getMatrícula() == matrícula) {
+                                System.out.println(funcionário);
+                            }
+                        }
+                    } else {
+                        menu.printaln("Não foi encontrado funcionário com esta matrícula!");
+                    }
                     break;
 
                 case SAIR:
