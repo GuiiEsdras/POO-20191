@@ -42,8 +42,7 @@
 | `descontarImposto(ProfEfetivo pe) {...}` | Objetos ProfHorista conseguiriam utilizar o método. | Apenas objetos ProfHorista conseguiriam utilizar este método. |
 | `descontarImposto(GerCampus gc) {...}` | Objetos GerCampus conseguiriam utilizar o método. | Apenas objetos GerCampus conseguiriam utilizar este método. |
 
-> Soluções: Criar uma Interface contendo os métodos específicos e fazer com que as classes do tipo alvejado implementem a Interface que contém o(s) respectivo(s) métodos.
-Ex.:
+> Soluções: Criar uma Interface contendo os métodos específicos e fazer com que as classes do tipo alvejado implementem a Interface que contém o(s) respectivo(s) métodos. <br> Ex.:
 
 ```java
 public interface maioresSalarios {
