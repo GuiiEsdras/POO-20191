@@ -46,7 +46,7 @@
 Ex.:
 
 ```java
-public interface maioresSalários {
+public interface maioresSalarios {
 	descontarImposto() {...};
 }
 ```
