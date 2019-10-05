@@ -24,7 +24,13 @@
 
 ### Questão 2
 ---
-
+<p float="left">
+  <img src="Questão 2 - Item 1.png" width="425" />
+  <img src="Questão 2 - Item 4.png" width="425" /> 
+  <img src="Questão 2 - Item 2.png" width="425" />
+  <img src="Questão 2 - Item 5.png" width="425" />
+  <img src="Questão 2 - Item 3.png" width="425" />
+</p>
 
 ### Questão 3
 ---
