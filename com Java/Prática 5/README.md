@@ -3,23 +3,23 @@
 ### Questão 1
 ---
 - [x] **a)** &hellip;
-- [x] **b)** &hellip;
-- [x] **c)** &hellip;
+- [ ] **b)** Falso.
+- [ ] **c)** Falso.
 - [x] **d)** &hellip;
-- [ ] **e)** *Uma classe concreta pode herdar quaisquer (inclusive todos) métodos de uma classe abstrata, e ela não tem que se tornar abstrata por isso.*
+- [ ] **e)** Falso. *Uma classe concreta pode herdar quaisquer (inclusive todos) métodos de uma classe abstrata, e ela não tem que se tornar abstrata por isso.*
 - [x] **f)** &hellip;
-- [x] **g)** &hellip;
-- [ ] **h)** *Para criar uma interface utiliza-se a keyword "interface"*
-- [ ] **i)** *Para implementar uma interface utiliza-se a keyword "implements"*
+- [ ] **g)** Falso.
+- [ ] **h)** Falso. *Para criar uma interface utiliza-se a keyword "interface"*
+- [ ] **i)** Falso. *Para implementar uma interface utiliza-se a keyword "implements"*
 - [x] **j)** &hellip;
-- [x] **k)** &hellip;
-- [x] **l)** &hellip;
-- [ ] **m)** *Herança de tipo pode conter construtores e ser instanciada, ao contrário de herança de implementação, que não pode ser instanciada e nem ter construtores.*
+- [ ] **k)** Falso.
+- [ ] **l)** Falso.
+- [ ] **m)** Falso. *Herança de tipo pode conter construtores e ser instanciada, ao contrário de herança de implementação, que não pode ser instanciada e nem ter construtores.*
 - [x] **n)** &hellip;
-- [x] **o)** &hellip;
+- [ ] **o)** Falso.
 - [x] **p)** &hellip;
 - [x] **q)** &hellip;
-- [x] **r)**  &hellip;
+- [ ] **r)** Falso.
 
 
 ### Questão 2
@@ -46,6 +46,6 @@
 
 ```java
 public interface maioresSalarios {
-	descontarImposto() {...};
+	... descontarImposto() {...};
 }
 ```
