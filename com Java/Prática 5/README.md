@@ -3,23 +3,23 @@
 ### Questão 1
 ---
 - [x] **a)** &hellip;
-- [ ] **b)** Falso.
-- [ ] **c)** Falso.
+- [ ] **b)** *Classes abstratas não precisam ter apenas métodos abstratos.*
+- [ ] **c)** *Se uma classe possui pelo menos um método abstrato, ela DEVE ser abstrata.*
 - [x] **d)** &hellip;
-- [ ] **e)** Falso. *Uma classe concreta pode herdar quaisquer (inclusive todos) métodos de uma classe abstrata, e ela não tem que se tornar abstrata por isso.*
+- [ ] **e)** *Uma classe concreta pode herdar quaisquer (inclusive todos) métodos de uma classe abstrata, e ela não tem que se tornar abstrata por isso.*
 - [x] **f)** &hellip;
-- [ ] **g)** Falso.
-- [ ] **h)** Falso. *Para criar uma interface utiliza-se a keyword "interface"*
-- [ ] **i)** Falso. *Para implementar uma interface utiliza-se a keyword "implements"*
+- [ ] **g)** *Interfaces podem conter métodos não-abstratos.*
+- [ ] **h)** *Para criar uma interface utiliza-se a keyword "interface"*
+- [ ] **i)** *Para implementar uma interface utiliza-se a keyword "implements"*
 - [x] **j)** &hellip;
-- [ ] **k)** Falso.
-- [ ] **l)** Falso.
-- [ ] **m)** Falso. *Herança de tipo pode conter construtores e ser instanciada, ao contrário de herança de implementação, que não pode ser instanciada e nem ter construtores.*
+- [ ] **k)** *Apenas métodos públicos e abstratos.*
+- [ ] **l)** *Interfaces também definem um tipo em Java.*
+- [ ] **m)** *Herança de tipo pode conter construtores e ser instanciada, ao contrário de herança de implementação, que não pode ser instanciada e nem ter construtores.*
 - [x] **n)** &hellip;
-- [ ] **o)** Falso.
+- [ ] **o)** *Classes abstratas podem ter construtores.*
 - [x] **p)** &hellip;
 - [x] **q)** &hellip;
-- [ ] **r)** Falso.
+- [ ] **r)** *Apenas os métodos referentes a essa referência poderão ser chamados.*
 
 
 ### Questão 2
