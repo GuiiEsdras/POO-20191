@@ -7,24 +7,35 @@ import org.apache.commons.lang3.*;
 
 // Java Utils
 import java.text.NumberFormat;
+import java.util.Date;
 import java.util.Locale;
 
 public class ContaCorrente {
     private Locale local = new Locale("pt", "BR");
 
     private int número;
+    private Date dataDeCadastro;
+
     private String titular;
+    private String senha;
     private double saldo;
 
+    private static int INCREMENTADOR = 0;
+
+    {
+        this.setNúmero( ++INCREMENTADOR );
+        this.setDataDeCadastro( new Date() );
+    }
+
     public ContaCorrente() {
-        this.setNúmero( 0 );
         this.setTitular( "Sem Nome");
+        this.setSenha( "123456" );
         this.setSaldo( 10 );
     }
 
-    public ContaCorrente(int número, String titular, double saldo) {
-        this.setNúmero( número );
+    public ContaCorrente(String titular, String senha, double saldo) {
         this.setTitular( titular );
+        this.setSenha( senha );
         this.setSaldo( saldo );
     }
 
@@ -32,10 +43,16 @@ public class ContaCorrente {
         return número;
     }
 
-    public void setNúmero(int número) {
-        if (número > 0 ) {
-            this.número = número;
-        }
+    private void setNúmero(int número) {
+        this.número = número;
+    }
+
+    public Date getDataDeCadastro() {
+        return dataDeCadastro;
+    }
+
+    public void setDataDeCadastro(Date dataDeCadastro) {
+        this.dataDeCadastro = dataDeCadastro;
     }
 
     public String getTitular() {
@@ -43,12 +60,17 @@ public class ContaCorrente {
     }
 
     public void setTitular(String titular) {
-        // Verifica se o titular contém apenas letras
-        if (StringUtils.isAlphaSpace(titular)) {
+        if (StringUtils.isNotBlank(titular)) {
             this.titular = titular;
-        } else {
-            throw new NomeDeTitularInválidoException();
         }
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public double getSaldo() {
@@ -74,9 +96,13 @@ public class ContaCorrente {
     }
 
     public double sacar(double quantia) {
-        if ( this.getSaldo() > (quantia + this.calculaCPMF(quantia)) ) {
+        if ( (quantia > 0) && (this.getSaldo() > (quantia + this.calculaCPMF(quantia))) ) {
             this.setSaldo( this.descontaCPMF(quantia) );
             return quantia;
+        } else if (quantia == 0) {
+            throw new IgualAZeroException();
+        } else if (quantia < 0) {
+            throw new QuantiaNegativaException();
         } else {
             throw new SaldoInsuficienteException();
         }
@@ -93,12 +119,11 @@ public class ContaCorrente {
     @Override
     public String toString() {
         NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(local);
-        StringBuilder str = new StringBuilder();
 
-        str.append(String.format("|Dados da Conta %d|\n", this.getNúmero()));
-        str.append("Titular: " + this.getTitular() + "\n");
-        str.append("Saldo: " + formatoMoeda.format(this.getSaldo()));
-
-        return str.toString();
+        return String.format("|Dados da Conta %d|\n", this.getNúmero()) +
+                             "Titular: " + this.getTitular() + "\n" +
+                             "Saldo: " + formatoMoeda.format(this.getSaldo()) + "\n" +
+                             String.format("%1$s %2$td de %2$tB de %2$tY às %2$tr",
+                                    "Membro Desde: ", this.getDataDeCadastro() );
     }
 }

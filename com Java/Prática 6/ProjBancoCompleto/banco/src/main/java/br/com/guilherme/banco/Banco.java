@@ -1,6 +1,9 @@
 package br.com.guilherme.banco;
 
 import br.com.guilherme.contacorrente.ContaCorrente;
+import br.com.guilherme.exceptions.*;
+
+import org.apache.commons.lang3.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,16 +29,18 @@ public class Banco {
     }
 
     public void setBankName(String bankName) {
-        if (bankName.length() > 0) {
+        if (StringUtils.isNotBlank(bankName)) {
             this.bankName = bankName;
+        } else {
+            throw new NomeInválidoException();
         }
     }
 
     public boolean adicionaConta(ContaCorrente cc) {
-        if (existeConta(cc.getNúmero())) {
-            return false;
-        } else {
+        if (!existeConta(cc.getNúmero())) {
             return listaDeContasCorrente.add(cc);
+        } else {
+            throw new ContaJáCadastradaException();
         }
     }
 
@@ -74,10 +79,10 @@ public class Banco {
 
         StringBuilder str = new StringBuilder();
 
-        str.append("|Banco " + bankName + "|" + "\n");
+        str.append("|Banco ").append(bankName).append("|").append("\n");
 
         for (ContaCorrente cc : listaDeContasCorrente) {
-            str.append(cc.toString() + "\n");
+            str.append(cc.toString()).append("\n");
         }
 
         return str.toString();

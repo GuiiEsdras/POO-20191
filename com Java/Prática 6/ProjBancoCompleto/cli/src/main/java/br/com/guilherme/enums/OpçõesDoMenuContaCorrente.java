@@ -5,7 +5,8 @@ public enum OpçõesDoMenuContaCorrente {
     DEPOSITO("Depositar"),
     SALDO("Saldo na tela"),
     EXTRATO("Extrato na tela"),
-    SAIR("SAIR");
+    VOLTAR("Voltar"),
+    SAIR("SAIR DO PROGRAMA");
 
     private final String nomeOpção;
 

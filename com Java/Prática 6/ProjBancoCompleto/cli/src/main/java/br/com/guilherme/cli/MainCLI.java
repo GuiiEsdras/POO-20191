@@ -2,8 +2,9 @@ package br.com.guilherme.cli;
 
 import br.com.guilherme.banco.*;
 import br.com.guilherme.enums.*;
-import br.com.guilherme.menu.*;
+import br.com.guilherme.exceptions.*;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static java.lang.System.*;
@@ -17,46 +18,109 @@ public class MainCLI {
         Menu menu = new Menu();
 
         menu.saudações();
-        banco.setBankName(MainCLI.inputString(input));
+        menu.alteraNomeDoBanco( banco, menu.lerEntrada("Antes de prosseguir, digite o nome do banco: ", input) );
 
         while (true) {
 
-            while (true) {
+            try {
                 menu.exibirMenuBanco(banco.getBankName());
-                menu.setOpção(MainCLI.inputInt(input));
+                menu.setOpção( Integer.parseInt( menu.lerEntrada(input) ) );
 
-                if (menu.getOpção() < 0 || menu.getOpção() > OpçõesDoMenuBanco.values().length) {
-                    out.println("Opção inválida!");
-                } else {
-                    break;
+                OpçõesDoMenuBanco opçãoBanco = OpçõesDoMenuBanco.values()[menu.getOpção()];
+
+                switch (opçãoBanco) {
+
+                    case ALTERAR_NOME_DO_BANCO:
+                        menu.alteraNomeDoBanco(banco, menu.lerEntrada("Digite o novo nome do banco: ", input));
+                        break;
+
+                    case CADASTRAR_CONTA_CORRENTE:
+                        // ...
+                        break;
+
+                    case EDITAR_CONTA_CORRENTE:
+                        // ...
+                        break;
+
+                    case REALIZAR_OPERACOES_EM_CONTA_CORRENTE:
+
+                        int número = Integer.parseInt( menu.lerEntrada("Digite o número da conta: ", input) );
+                        if (!banco.existeConta(número)) {
+                            menu.println("Conta não encontrada!");
+                            break;
+                        }
+
+                        boolean sairDoMenuContaCorrente = false;
+
+                        while (!sairDoMenuContaCorrente) {
+
+                            try {
+                                menu.exibirMenuContaCorrente(número);
+                                menu.setOpção( Integer.parseInt( menu.lerEntrada(input) ) );
+
+                                OpçõesDoMenuContaCorrente opçãoContaCorrente = OpçõesDoMenuContaCorrente.values()[menu.getOpção()];
+
+                                switch (opçãoContaCorrente) {
+
+                                    case SAQUE:
+                                        // ...
+                                        break;
+
+                                    case DEPOSITO:
+                                        // ...
+                                        break;
+
+                                    case SALDO:
+                                        // ...
+                                        break;
+
+                                    case EXTRATO:
+                                        // ...
+                                        break;
+
+                                    case VOLTAR:
+                                        sairDoMenuContaCorrente = true;
+                                        break;
+
+                                    case SAIR:
+                                        SAIR();
+                                }
+
+                            } catch (OpçãoInválidaException oie) {
+                                menu.println("Opção inválida! Tente de novo.");
+                            }
+                        }
+
+                        break;
+
+                    case EXIBIR_CONTAS_CADASTRADAS:
+                        // ...
+                        break;
+
+                    case EXIBIR_DADOS_BANCO:
+                        // ...
+                        break;
+
+                    case EXIBIR_DADOS_CONTA:
+                        // ...
+                        break;
+
+                    case SAIR:
+                        SAIR();
                 }
+
+            } catch (OpçãoInválidaException oie) {
+                menu.println("Opção inválida! Tente de novo.");
+
+            } catch (InputMismatchException ime) {
+                menu.println("...");
             }
 
-            OpçõesDoMenuBanco opçãoBanco = OpçõesDoMenuBanco.values()[menu.getOpção()];
-
-            switch (opçãoBanco) {
-
-                case ALTERAR_NOME_DO_BANCO:
-                    out.println("Alterar dados");
-                    break;
-
-                case SAIR:
-                    out.println("Saindo...");
-                    exit(0);
-
-            }
         }
     }
 
-    private static int inputInt(Scanner input) {
-        return input.nextInt();
-    }
-
-    private static String inputString(Scanner input) {
-        return input.nextLine();
-    }
-
-    private static double inputDouble(Scanner input) {
-        return input.nextDouble();
+    private static void SAIR() {
+        out.println("Saindo do programa. Volte sempre!");
+        exit(0);
     }
 }
