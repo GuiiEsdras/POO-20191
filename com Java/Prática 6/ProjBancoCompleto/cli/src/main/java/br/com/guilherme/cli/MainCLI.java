@@ -1,6 +1,7 @@
 package br.com.guilherme.cli;
 
 import br.com.guilherme.banco.*;
+import br.com.guilherme.contacorrente.ContaCorrente;
 import br.com.guilherme.enums.*;
 import br.com.guilherme.exceptions.*;
 
@@ -12,30 +13,58 @@ import static java.lang.System.*;
 public class MainCLI {
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(in);
-
+        // Objetos principais
         Banco banco = new Banco();
         Menu menu = new Menu();
 
-        menu.saudações();
-        menu.alteraNomeDoBanco( banco, menu.lerEntrada("Antes de prosseguir, digite o nome do banco: ", input) );
+        // Variáveis auxiliares - Banco
+        String nomeDoBanco;
 
+        // Variáveis auxiliares - ContaCorrente
+        String titular;
+        String senha;
+        double saldoInicial;
+
+        // Variáveis auxiliares - Menu
+        int op;
+
+        menu.saudações();
+
+        boolean primeiraVisita = true;
         while (true) {
 
-            try {
-                menu.exibirMenuBanco(banco.getBankName());
-                menu.setOpção( Integer.parseInt( menu.lerEntrada(input) ) );
+            try (Scanner input = new Scanner(in)) {
+
+                if (primeiraVisita) {
+                    nomeDoBanco = menu.lerEntrada("Antes de prosseguir, digite o nome do banco: ", input);
+                    banco.setBankName(nomeDoBanco);
+                    primeiraVisita = false;
+                }
+
+                menu.exibirMenuBanco( banco.getBankName() );
+
+                op = Integer.parseInt( menu.lerEntrada("\n\t Digite uma opção: ", input) );
+
+                menu.setOpção( op );
 
                 OpçõesDoMenuBanco opçãoBanco = OpçõesDoMenuBanco.values()[menu.getOpção()];
 
                 switch (opçãoBanco) {
 
                     case ALTERAR_NOME_DO_BANCO:
-                        menu.alteraNomeDoBanco(banco, menu.lerEntrada("Digite o novo nome do banco: ", input));
+                        nomeDoBanco = menu.lerEntrada("Digite o novo nome do banco: ", input);
+                        banco.setBankName(nomeDoBanco);
                         break;
 
                     case CADASTRAR_CONTA_CORRENTE:
-                        // ...
+                        titular = menu.lerEntrada("Digite o nome do titular: ", input);
+                        senha = menu.lerEntrada("Digite a senha: ", input);
+                        saldoInicial = Double.parseDouble(menu.lerEntrada("Digite o depósito inicial: R$", input));
+
+                        if (banco.adicionaConta(new ContaCorrente(titular, senha, saldoInicial))) {
+                            menu.println("Conta criada com sucesso!");
+                        }
+
                         break;
 
                     case EDITAR_CONTA_CORRENTE:
@@ -44,7 +73,7 @@ public class MainCLI {
 
                     case REALIZAR_OPERACOES_EM_CONTA_CORRENTE:
 
-                        int número = Integer.parseInt( menu.lerEntrada("Digite o número da conta: ", input) );
+                        int número = Integer.parseInt(menu.lerEntrada("Digite o número da conta: ", input));
                         if (!banco.existeConta(número)) {
                             menu.println("Conta não encontrada!");
                             break;
@@ -56,26 +85,26 @@ public class MainCLI {
 
                             try {
                                 menu.exibirMenuContaCorrente(número);
-                                menu.setOpção( Integer.parseInt( menu.lerEntrada(input) ) );
+                                menu.setOpção(Integer.parseInt(menu.lerEntrada(input)));
 
                                 OpçõesDoMenuContaCorrente opçãoContaCorrente = OpçõesDoMenuContaCorrente.values()[menu.getOpção()];
 
                                 switch (opçãoContaCorrente) {
 
                                     case SAQUE:
-                                        // ...
+                                        menu.println("Realizando saque...");
                                         break;
 
                                     case DEPOSITO:
-                                        // ...
+                                        menu.println("Realizando depósito...");
                                         break;
 
                                     case SALDO:
-                                        // ...
+                                        menu.println("Verificando saldo...");
                                         break;
 
                                     case EXTRATO:
-                                        // ...
+                                        menu.println("Verificando extrato...");
                                         break;
 
                                     case VOLTAR:
@@ -94,15 +123,20 @@ public class MainCLI {
                         break;
 
                     case EXIBIR_CONTAS_CADASTRADAS:
-                        // ...
+                        if (banco.quantidadeDeContas() > 0) {
+                            banco.getListaDeContasCorrente().forEach(out::println);
+                        } else {
+                            menu.println("Ainda não existem contas cadastradas no banco!");
+                        }
                         break;
 
                     case EXIBIR_DADOS_BANCO:
-                        // ...
+                        menu.println("Nome do Banco: " + banco.getBankName());
+                        menu.println("Quantidade de Contas Cadastradas: " + banco.quantidadeDeContas());
                         break;
 
                     case EXIBIR_DADOS_CONTA:
-                        // ...
+                        menu.println("Exibindo dados...");
                         break;
 
                     case SAIR:
@@ -110,10 +144,17 @@ public class MainCLI {
                 }
 
             } catch (OpçãoInválidaException oie) {
-                menu.println("Opção inválida! Tente de novo.");
+                err.println("Opção inválida! Tente de novo.");
 
             } catch (InputMismatchException ime) {
-                menu.println("...");
+                err.println("...");
+
+            } catch (NomeInválidoException nie) {
+                err.println("O nome do banco não pode ficar em branco!");
+
+            } catch (NumberFormatException nfe) {
+                err.println("Você deve digitar apenas números!");
+
             }
 
         }

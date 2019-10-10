@@ -40,8 +40,6 @@ public class Menu {
                                 OpçõesDoMenuBanco.toString()
                 )
         );
-
-        print("\n\t Digite uma opção:__");
     }
 
     public void exibirMenuContaCorrente(int número) {
@@ -58,18 +56,6 @@ public class Menu {
         );
 
         print("\n\t Digite uma opção:__");
-    }
-
-    public void alteraNomeDoBanco(Banco banco, String nome) {
-        do {
-            try {
-                banco.setBankName( nome );
-                break;
-            } catch (NomeInválidoException nie) {
-                print(  "O nome do banco não pode ficar em branco!\n" +
-                        "Digite um nome válido: ");
-            }
-        } while (true);
     }
 
     public String lerEntrada(String msg, Scanner input) {
