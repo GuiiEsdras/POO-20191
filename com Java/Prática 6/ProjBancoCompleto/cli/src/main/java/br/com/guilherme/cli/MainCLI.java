@@ -22,6 +22,7 @@ public class MainCLI {
 
         // Variáveis auxiliares - ContaCorrente
         String titular;
+        String CPF;
         String senha;
         double saldoInicial;
 
@@ -33,35 +34,43 @@ public class MainCLI {
         boolean primeiraVisita = true;
         while (true) {
 
-            try (Scanner input = new Scanner(in)) {
+            try {
 
                 if (primeiraVisita) {
-                    nomeDoBanco = menu.lerEntrada("Antes de prosseguir, digite o nome do banco: ", input);
+                    menu.print("Antes de prosseguir, digite o nome do banco: ");
+                    nomeDoBanco = inputStr();
                     banco.setBankName(nomeDoBanco);
                     primeiraVisita = false;
                 }
 
                 menu.exibirMenuBanco( banco.getBankName() );
 
-                op = Integer.parseInt( menu.lerEntrada("\n\t Digite uma opção: ", input) );
+                op = inputInt();
 
                 menu.setOpção( op );
 
                 OpçõesDoMenuBanco opçãoBanco = OpçõesDoMenuBanco.values()[menu.getOpção()];
 
+                out.println("---");
                 switch (opçãoBanco) {
 
                     case ALTERAR_NOME_DO_BANCO:
-                        nomeDoBanco = menu.lerEntrada("Digite o novo nome do banco: ", input);
+                        menu.print("Digite o novo nome do banco: ");
+                        nomeDoBanco = inputStr();
                         banco.setBankName(nomeDoBanco);
                         break;
 
                     case CADASTRAR_CONTA_CORRENTE:
-                        titular = menu.lerEntrada("Digite o nome do titular: ", input);
-                        senha = menu.lerEntrada("Digite a senha: ", input);
-                        saldoInicial = Double.parseDouble(menu.lerEntrada("Digite o depósito inicial: R$", input));
+                        menu.print("Digite o nome do titular: ");
+                        titular = inputStr();
+                        menu.print("Digite o CPF do titular: ");
+                        CPF = inputStr();
+                        menu.print("Digite a senha: ");
+                        senha = inputStr();
+                        menu.print("Digite o depósito inicial: R$");
+                        saldoInicial = inputDouble();
 
-                        if (banco.adicionaConta(new ContaCorrente(titular, senha, saldoInicial))) {
+                        if (banco.adicionaConta(new ContaCorrente(titular, CPF, senha, saldoInicial))) {
                             menu.println("Conta criada com sucesso!");
                         }
 
@@ -73,7 +82,8 @@ public class MainCLI {
 
                     case REALIZAR_OPERACOES_EM_CONTA_CORRENTE:
 
-                        int número = Integer.parseInt(menu.lerEntrada("Digite o número da conta: ", input));
+                        menu.print("Digite o número da conta: ");
+                        int número = inputInt();
                         if (!banco.existeConta(número)) {
                             menu.println("Conta não encontrada!");
                             break;
@@ -85,7 +95,7 @@ public class MainCLI {
 
                             try {
                                 menu.exibirMenuContaCorrente(número);
-                                menu.setOpção(Integer.parseInt(menu.lerEntrada(input)));
+                                menu.setOpção(inputInt());
 
                                 OpçõesDoMenuContaCorrente opçãoContaCorrente = OpçõesDoMenuContaCorrente.values()[menu.getOpção()];
 
@@ -158,6 +168,21 @@ public class MainCLI {
             }
 
         }
+    }
+
+    public static int inputInt() {
+        Scanner input = new Scanner(in);
+        return input.nextInt();
+    }
+
+    public static String inputStr() {
+        Scanner input = new Scanner(in);
+        return input.nextLine();
+    }
+
+    public static double inputDouble() {
+        Scanner input = new Scanner(in);
+        return input.nextDouble();
     }
 
     private static void SAIR() {

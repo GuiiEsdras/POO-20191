@@ -14,7 +14,7 @@ public class TesteContaCorrente {
 
         out.println("-----");
 
-        ContaCorrente c2 = new ContaCorrente( "Exemplo Dois", "123", 500);
+        ContaCorrente c2 = new ContaCorrente( "Exemplo Dois", "12345678910", "123", 500);
         out.println(c2);
         c2.depositar(500);
         out.println(c2);
@@ -23,7 +23,7 @@ public class TesteContaCorrente {
 
         out.println("-----");
 
-        ContaCorrente c3 = new ContaCorrente( "Gui", "123", 1000);
+        ContaCorrente c3 = new ContaCorrente( "Gui", "12345678915", "123", 1000);
         double dinheiroSacado = c3.sacar(100);
         out.println(dinheiroSacado);
         out.println(c3.getSaldo());

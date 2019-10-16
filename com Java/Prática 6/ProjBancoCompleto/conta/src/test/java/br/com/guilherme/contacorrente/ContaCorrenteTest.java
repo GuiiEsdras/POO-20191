@@ -1,24 +1,27 @@
 package br.com.guilherme.contacorrente;
 
 import br.com.guilherme.exceptions.QuantiaNegativaException;
+
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
 
-import java.util.Date;
 
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING) // Testes são realizados por ordem alfabética
 public class ContaCorrenteTest {
 
-    @Test
-    public void getNúmero() {
-        ContaCorrente cc = new ContaCorrente("Teste", "123", 150);
+    @Test // Deve rodar este teste primeiro pois o nome do método inicia com a letra "a"
+    public void a_getNúmero() {
+        ContaCorrente cc = new ContaCorrente("Teste", "12345678912", "123", 150);
 
+        // Para funcionar: certificar-se de ser o primeiro teste a ser rodado
         Assert.assertEquals(1, cc.getNúmero());
     }
 
     @Test
     public void getTitular() {
-        ContaCorrente cc = new ContaCorrente("Guilherme", "123", 100);
+        ContaCorrente cc = new ContaCorrente("Guilherme", "12345678915", "123", 100);
         Assert.assertEquals("Guilherme", cc.getTitular());
     }
 
@@ -33,7 +36,7 @@ public class ContaCorrenteTest {
 
     @Test
     public void getSaldo() {
-        ContaCorrente cc = new ContaCorrente("Gui", "123", 255);
+        ContaCorrente cc = new ContaCorrente("Gui", "12345678918", "123", 255);
         Assert.assertEquals(255, cc.getSaldo(), 0);
     }
 
@@ -48,7 +51,7 @@ public class ContaCorrenteTest {
 
     @Test(expected = QuantiaNegativaException.class)
     public void depositar() {
-        ContaCorrente cc = new ContaCorrente("Gui", "123", 250);
+        ContaCorrente cc = new ContaCorrente("Gui", "12345678925", "123", 250);
 
         cc.depositar(1250);
         Assert.assertEquals(1500, cc.getSaldo(), 0);
@@ -61,7 +64,7 @@ public class ContaCorrenteTest {
 
     @Test(expected = QuantiaNegativaException.class)
     public void sacar() {
-        ContaCorrente c3 = new ContaCorrente("Gui", "123", 1000);
+        ContaCorrente c3 = new ContaCorrente("Gui", "12345678927", "123", 1000);
 
         double dinheiroSacado = c3.sacar(100);
         Assert.assertEquals(899, c3.getSaldo(), 0);

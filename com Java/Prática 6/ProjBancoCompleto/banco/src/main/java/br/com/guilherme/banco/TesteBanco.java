@@ -11,8 +11,8 @@ public class TesteBanco {
 
         Banco novoBanco = new Banco("Gui");
 
-        ContaCorrente acc1 = new ContaCorrente("Gui", "123", 100);
-        ContaCorrente acc2 = new ContaCorrente("Esdras", "123", 250);
+        ContaCorrente acc1 = new ContaCorrente("Gui", "12345678925", "123", 100);
+        ContaCorrente acc2 = new ContaCorrente("Esdras", "12345678924", "123", 250);
 
         novoBanco.adicionaConta(acc1);
         novoBanco.adicionaConta(acc2);

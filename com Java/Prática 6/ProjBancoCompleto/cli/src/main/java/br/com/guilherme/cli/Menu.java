@@ -40,6 +40,8 @@ public class Menu {
                                 OpçõesDoMenuBanco.toString()
                 )
         );
+
+        print("\n\t Digite uma opção:__");
     }
 
     public void exibirMenuContaCorrente(int número) {
@@ -56,15 +58,6 @@ public class Menu {
         );
 
         print("\n\t Digite uma opção:__");
-    }
-
-    public String lerEntrada(String msg, Scanner input) {
-        print(msg);
-        return input.nextLine();
-    }
-
-    public String lerEntrada(Scanner input) {
-        return input.nextLine();
     }
 
     public void println(String msg) {

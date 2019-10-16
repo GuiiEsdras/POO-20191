@@ -3,21 +3,24 @@ package br.com.guilherme.banco;
 import br.com.guilherme.contacorrente.ContaCorrente;
 import br.com.guilherme.exceptions.*;
 
+// Funções Auxiliares - Apache
 import org.apache.commons.lang3.*;
 
-import java.util.ArrayList;
-import java.util.List;
+// Java Util
+import java.util.*;
 
 public class Banco {
+    private static final String BANCO_SEM_NOME = "--- Banco Sem Nome ---";
+
     private String bankName;
-    private List<ContaCorrente> listaDeContasCorrente;
+    private Set<ContaCorrente> listaDeContasCorrente;
 
     {
-        this.setListaDeContasCorrente(new ArrayList<>());
+        this.setListaDeContasCorrente(new HashSet<>());
     }
 
     public Banco() {
-        this.setBankName("--- Banco Sem Nome ---");
+        this.setBankName( BANCO_SEM_NOME );
     }
 
     public Banco(String bankName) {
@@ -54,23 +57,20 @@ public class Banco {
     }
 
     public boolean existeConta(int número) {
-        for (ContaCorrente tmp : listaDeContasCorrente) {
-            if (tmp.getNúmero() == número) {
-                return true;
-            }
-        }
-        return false;
+        return  this.getListaDeContasCorrente()
+                    .stream()
+                    .anyMatch(contaCorrente -> número == contaCorrente.getNúmero());
     }
 
     public int quantidadeDeContas() {
         return listaDeContasCorrente.size();
     }
 
-    public List<ContaCorrente> getListaDeContasCorrente() {
+    public Set<ContaCorrente> getListaDeContasCorrente() {
         return listaDeContasCorrente;
     }
 
-    private void setListaDeContasCorrente(List<ContaCorrente> listaDeContasCorrente) {
+    private void setListaDeContasCorrente(Set<ContaCorrente> listaDeContasCorrente) {
         this.listaDeContasCorrente = listaDeContasCorrente;
     }
 
