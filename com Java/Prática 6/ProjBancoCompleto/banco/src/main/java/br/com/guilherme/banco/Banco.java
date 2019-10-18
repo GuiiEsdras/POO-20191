@@ -1,7 +1,7 @@
 package br.com.guilherme.banco;
 
-import br.com.guilherme.contacorrente.ContaCorrente;
-import br.com.guilherme.exceptions.*;
+import br.com.guilherme.conta.contacorrente.ContaCorrente;
+import br.com.guilherme.banco.exceptions.*;
 
 // Funções Auxiliares - Apache
 import org.apache.commons.lang3.*;

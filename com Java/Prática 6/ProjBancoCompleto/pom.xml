@@ -10,29 +10,39 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <!-- Módulos filhos -->
-    <modules>
-        <module>banco</module>
-        <module>cli</module>
-        <module>conta</module>
-    </modules>
-
     <!-- Nome, Descrição & Website do Projeto -->
     <name>ProjBancoCompleto</name>
     <description>POO - Prática 6 - Guilherme Esdras</description>
     <url>https://github.com/GuilhermeEsdras/Programacao-Orientada-A-Objetos/tree/master/com%20Java/Pr%C3%A1tica%206</url>
 
-    <!-- Versão local do Java -->
+    <!-- Módulos filhos -->
+    <modules>
+        <module>banco</module>
+        <module>cli</module>
+        <module>conta</module>
+        <module>gui</module>
+    </modules>
+
+    <!-- Variáveis Globais -->
     <properties>
+        <!-- Versão do Java e Úteis para projeto -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
+
+        <!-- Versão do Maven-->
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>11</maven.compiler.release>
+
+        <!-- Versão e Variáveis p/ JavaFX -->
+        <javafx.version>13</javafx.version>
+        <mainGUIClass>gui/br.com.guilherme.gui.GUIMain</mainGUIClass>
     </properties>
 
-    <!-- Dependências -->
+    <!-- Dependências (Bibliotecas auxiliares externas) -->
     <dependencies>
+
         <!-- Para TDD com JUnit: -->
         <dependency>
             <groupId>junit</groupId>
@@ -57,12 +67,25 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.0</version>
         </dependency>
+
     </dependencies>
 
     <!-- Builds -->
     <build>
-        <!-- Plugins -->
+        <!-- Plugins (úteis para compilar e automatizar tarefas do projeto com maven) -->
         <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>${maven.compiler.release}</source>
+                    <target>${maven.compiler.release}</target>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

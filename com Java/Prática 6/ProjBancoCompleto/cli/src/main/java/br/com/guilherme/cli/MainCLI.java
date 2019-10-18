@@ -1,10 +1,18 @@
 package br.com.guilherme.cli;
 
+// Módulo banco
 import br.com.guilherme.banco.*;
-import br.com.guilherme.contacorrente.ContaCorrente;
-import br.com.guilherme.enums.*;
-import br.com.guilherme.exceptions.*;
+import br.com.guilherme.banco.exceptions.*;
 
+// Módulo Conta
+import br.com.guilherme.conta.contacorrente.ContaCorrente;
+
+// Módulo CLI
+import br.com.guilherme.cli.exceptions.OpçãoInválidaException;
+import br.com.guilherme.cli.menu.Menu;
+import br.com.guilherme.cli.enums.*;
+
+// Java Utils
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

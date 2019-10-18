@@ -1,13 +1,11 @@
 package br.com.guilherme.banco;
 
-import br.com.guilherme.contacorrente.ContaCorrente;
+import br.com.guilherme.conta.contacorrente.ContaCorrente;
 
 // JUnit
 import org.junit.Test;
-import org.junit.Assert;
 
 // Hamcrest
-import java.util.Date;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;

@@ -1,8 +1,6 @@
 package br.com.guilherme.banco;
 
-import br.com.guilherme.contacorrente.ContaCorrente;
-
-import java.util.Date;
+import br.com.guilherme.conta.contacorrente.ContaCorrente;
 
 import static java.lang.System.*;
 
