@@ -13,21 +13,6 @@
 
     <!-- Dependências (Bibliotecas externas) -->
     <dependencies>
-
-<!--        &lt;!&ndash; Módulo Banco &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>br.com.guilherme</groupId>-->
-<!--            <artifactId>banco</artifactId>-->
-<!--            <version>${project.version}</version>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; Módulo Conta &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>br.com.guilherme</groupId>-->
-<!--            <artifactId>conta</artifactId>-->
-<!--            <version>${project.version}</version>-->
-<!--        </dependency>-->
-
         <!-- JavaFX para interface gráfica -->
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -51,22 +36,6 @@
                     <release>${maven.compiler.release}</release>
                     <jlinkImageName>gui</jlinkImageName>
                     <launcher>launcher</launcher>
-                    <mainClass>${mainGUIClass}</mainClass>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
                     <mainClass>${mainGUIClass}</mainClass>
                 </configuration>
             </plugin>
