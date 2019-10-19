@@ -6,15 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="banco" />
+        <module name="cliente" />
         <module name="conta" />
+        <module name="agencia" />
         <module name="cli" />
+        <module name="banco" />
         <module name="gui" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="agencia" target="11" />
       <module name="banco" target="11" />
       <module name="cli" target="11" />
+      <module name="cliente" target="11" />
       <module name="conta" target="11" />
       <module name="gui" target="11" />
       <module name="ProjBancoCompleto" target="11" />

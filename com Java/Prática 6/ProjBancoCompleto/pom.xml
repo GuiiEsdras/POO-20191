@@ -18,8 +18,10 @@
     <!-- Módulos filhos -->
     <modules>
         <module>banco</module>
-        <module>cli</module>
+        <module>agencia</module>
+        <module>cliente</module>
         <module>conta</module>
+        <module>cli</module>
         <module>gui</module>
     </modules>
 
