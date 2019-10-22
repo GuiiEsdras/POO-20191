@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
  *
  * @author Guilherme
  */
-public class Home extends JFrame {
+public class TelaDeCadastro extends JFrame {
 
     private JFormattedTextField CPFField;
     private JTextField NomeField;
@@ -36,7 +36,7 @@ public class Home extends JFrame {
     private KGradientPanel kGradientPanel1;
     private KGradientPanel kGradientPanel2;
 
-    public Home() {
+    public TelaDeCadastro() {
         initComponents();
     }
 
@@ -334,10 +334,10 @@ public class Home extends JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDeCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        EventQueue.invokeLater(() -> new Home().setVisible(true));
+        EventQueue.invokeLater(() -> new TelaDeCadastro().setVisible(true));
     }
 
 }
