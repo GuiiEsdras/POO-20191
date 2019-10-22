@@ -36,10 +36,6 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>11</maven.compiler.release>
-
-        <!-- Versão e Variáveis p/ JavaFX -->
-        <javafx.version>13</javafx.version>
-        <mainGUIClass>gui/br.com.guilherme.gui.GUIMain</mainGUIClass>
     </properties>
 
     <!-- Dependências (Bibliotecas auxiliares externas) -->
