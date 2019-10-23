@@ -10,6 +10,7 @@
         <module name="conta" />
         <module name="agencia" />
         <module name="cli" />
+        <module name="funcionario" />
         <module name="banco" />
         <module name="gui" />
       </profile>
@@ -20,6 +21,7 @@
       <module name="cli" target="11" />
       <module name="cliente" target="11" />
       <module name="conta" target="11" />
+      <module name="funcionario" target="11" />
       <module name="gui" target="11" />
       <module name="ProjBancoCompleto" target="11" />
     </bytecodeTargetLevel>

@@ -23,6 +23,7 @@
         <module>conta</module>
         <module>cli</module>
         <module>gui</module>
+        <module>funcionario</module>
     </modules>
 
     <!-- Variáveis Globais -->
