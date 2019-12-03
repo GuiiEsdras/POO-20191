@@ -13,7 +13,8 @@ public class MainServidor {
             ServidorDeSignos servidorDeSignos = new ServidorDeSignos();
             ObjetoRemotoSignos_IF stub = (ObjetoRemotoSignos_IF) UnicastRemoteObject.exportObject(servidorDeSignos, 0);
 
-            Registry registry = LocateRegistry.createRegistry(1099);
+            System.setProperty("java.rmi.server.hostname", "192.168.0.101");
+            Registry registry = LocateRegistry.getRegistry(1099);
             registry.bind("Frase do Signo", stub);
 
             System.err.println("Servidor pronto!");

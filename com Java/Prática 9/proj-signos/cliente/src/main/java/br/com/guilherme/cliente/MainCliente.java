@@ -1,12 +1,23 @@
 package br.com.guilherme.cliente;
 
+import java.util.Scanner;
+
 public class MainCliente {
     public static void main(String[] args) {
 
-        String host = (args.length < 1) ? "localhost" : args[0];
-        String umSigno = args[1];
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Digite o IP do servidor: ");
+        String host = input.nextLine();
+
+        System.out.print("Digite o signo: ");
+        String umSigno = input.nextLine();
+
+        System.out.println("Aguarde. Contatando o servidor...");
+
         Cliente cliente = new Cliente();
         cliente.executarCliente(host, umSigno);
 
+        input.close();
     }
 }
